@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { View, SafeAreaView, Text, TextInput, Switch } from "react-native";
 
-import LoginScreen from "./app/screens/LoginScreen"
+import RegisterScreen from "./app/screens/RegisterScreen"
 
 
 export default function App() {
 
   return (
-    <LoginScreen />
+    <RegisterScreen />
   );
 }
