@@ -7,7 +7,7 @@ import AppText from "./AppText";
 export default function Card({ title, subTitle, image }) {
   return (
     <View style={styles.card}>
-      <Image style={styles.image} source={image} />
+      <Image resizeMode="contain" style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 300,
   },
   title: {
     marginBottom: 7,
