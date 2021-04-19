@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  SafeAreaView,
-  Text,
-  TextInput,
-  Switch,
-  Button,
-  Image,
-} from "react-native";
+import { View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 
 import Screen from "./app/components/Screen";
-import MessagesScreen from "./app/screens/MessagesScreen";
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
@@ -37,8 +29,12 @@ export default function App() {
 
   return (
     <Screen>
-      <Button title="Select" onPress={selectImage} />
-      <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
+      <View>
+        <ImageInput
+          imageUri={imageUri}
+          onChangeImage={(uri) => setImageUri(uri)}
+        />
+      </View>
     </Screen>
   );
 }
