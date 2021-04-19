@@ -1,18 +1,9 @@
 import React from "react";
-import {
-  Image,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-} from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
 import AppButton from "../components/AppButton";
-import colors from "../config/colors";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
@@ -24,14 +15,11 @@ function WelcomeScreen(props) {
         <Text style={styles.tagLine}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton 
-        title="Login" 
-        onPress={() => console.log("Testing")}
-        />
-        <AppButton 
-        title="Register" 
-        onPress={() => console.log("Testing")}
-        color="secondary"
+        <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+        <AppButton
+          title="Register"
+          onPress={() => navigation.navigate("Register")}
+          color="secondary"
         />
       </View>
     </ImageBackground>
