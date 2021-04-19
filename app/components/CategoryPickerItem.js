@@ -1,19 +1,21 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 
 import AppIcon from "./AppIcon";
 import AppText from "./AppText";
 
 export default function CategoryPickerItem({ item, onPress }) {
   return (
-    <View style={styles.container}>
-      <AppIcon
-        backgroundColor={item.backgroundColor}
-        name={item.icon}
-        size={80}
-      />
-      <AppText style={styles.label}>{item.label}</AppText>
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <AppIcon
+          backgroundColor={item.backgroundColor}
+          name={item.icon}
+          size={80}
+        />
+        <AppText style={styles.label}>{item.label}</AppText>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({
