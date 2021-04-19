@@ -9,8 +9,8 @@ export default function Card({ title, subTitle, image }) {
     <View style={styles.card}>
       <Image resizeMode="contain" style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
+        <AppText style={styles.subTitle} numberOfLines={2}>{subTitle}</AppText>
       </View>
     </View>
   );

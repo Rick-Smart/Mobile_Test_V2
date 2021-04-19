@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-export default function AppFormField({ name, ...otherProps }) {
+export default function AppFormField({ name, width, ...otherProps }) {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
 
   return (
@@ -14,6 +14,7 @@ export default function AppFormField({ name, ...otherProps }) {
         style={styles.textInput}
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
+        width={width}
         {...otherProps}
       />
 
