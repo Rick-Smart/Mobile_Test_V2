@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 import AppText from "../components/AppText";
 import colors from "../config/colors";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 
 
 export default function ListingDetailsScreen() {
@@ -24,6 +24,8 @@ export default function ListingDetailsScreen() {
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   image: {
