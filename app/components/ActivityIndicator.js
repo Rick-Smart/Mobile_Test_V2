@@ -7,7 +7,9 @@ export default function ActivityIndicator({ visible = false }) {
     <LottieView
       autoPlay
       loop
-      source={require("../assets/animations/loading.json")}
+      pause
+      resume
+      source={require("../assets/animations/loadingCat.json")}
     />
   );
 }
