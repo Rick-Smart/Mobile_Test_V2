@@ -55,27 +55,30 @@ export default function ListingEditScreen() {
   const [upLoadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const handleSubmit = async (listing) => {
+  const handleSubmit = async (listing, { resetForm }) => {
     setProgress(0);
     setUploadVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
       (progress) => setProgress(progress)
     );
-    
 
-    if (!result.ok){
+    if (!result.ok) {
       setUploadVisible(false);
       return alert("Could not save the listing");
     }
 
-    
+    resetForm();
   };
 
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-      <UploadScreen onDone={()=> setUploadVisible(false)} progress={progress} visible={upLoadVisible} />
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={upLoadVisible}
+      />
       <AppForm
         initialValues={{
           title: "",
