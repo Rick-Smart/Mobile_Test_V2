@@ -4,11 +4,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 
 import Screen from "./app/components/Screen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import AppText from "./app/components/AppText";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -66,24 +68,25 @@ const TabNavigator = () => (
       inactiveTintColor: "black",
     }}
   >
-    {/* <Tab.Screen
-      name="Feed"
-      component={Tweets}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons name="home" size={size} color={color} />
-        ),
-      }}
-    /> */}
     <Tab.Screen name="Feed" component={Tweets} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
 );
 
-export default function App() {
-  return (
-    <NavigationContainer theme={navigationTheme}>
+{
+  /* <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
-    </NavigationContainer>
+    </NavigationContainer> */
+}
+
+export default function App() {
+  const netInfo = useNetInfo();
+
+  return (
+    <Screen>
+      {netInfo.isInternetReachable ? (<AppText>True</AppText>) : (
+      <AppText>False</AppText>
+      )}
+    </Screen>
   );
 }
