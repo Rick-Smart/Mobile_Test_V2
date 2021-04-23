@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Screen from "./app/components/Screen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
@@ -80,13 +81,18 @@ const TabNavigator = () => (
 }
 
 export default function App() {
-  const netInfo = useNetInfo();
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem("person");
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  return (
-    <Screen>
-      {netInfo.isInternetReachable ? (<AppText>True</AppText>) : (
-      <AppText>False</AppText>
-      )}
-    </Screen>
-  );
+  demo();
+
+  return <Screen></Screen>;
 }
