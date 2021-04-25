@@ -12,6 +12,7 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import AppText from "./app/components/AppText";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -89,10 +90,13 @@ export default function App() {
   // demo();
 
   return (
+    <>
+    <OfflineNotice />
     <Screen>
       <NavigationContainer theme={navigationTheme}>
         <AppNavigator />
       </NavigationContainer>
     </Screen>
+    </>
   );
 }
