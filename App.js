@@ -94,7 +94,8 @@ export default function App() {
     <OfflineNotice />
     <Screen>
       <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
+        {/* <AppNavigator /> */}
+        <AuthNavigator />
       </NavigationContainer>
     </Screen>
     </>
