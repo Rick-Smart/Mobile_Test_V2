@@ -7,7 +7,6 @@ import AppText from "../components/AppText";
 import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from "../api/listings";
-import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 import useApi from "../hooks/useApi";
 
@@ -37,7 +36,8 @@ export default function ListingsScreen({ navigation }) {
             title={item.title}
             subTitle={"$" + item.price}
             imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+            onPress={() => navigation.navigate("ListingDetails", item)}
+            thumbnailUrl={item.images[0].thumbnailUrl}
           />
         )}
       />

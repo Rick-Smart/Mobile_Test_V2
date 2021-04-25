@@ -4,11 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Screen from "./app/components/Screen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import AppText from "./app/components/AppText";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -66,24 +70,33 @@ const TabNavigator = () => (
       inactiveTintColor: "black",
     }}
   >
-    {/* <Tab.Screen
-      name="Feed"
-      component={Tweets}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons name="home" size={size} color={color} />
-        ),
-      }}
-    /> */}
     <Tab.Screen name="Feed" component={Tweets} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
 );
 
 export default function App() {
+  // const demo = async () => {
+  //   try {
+  //     await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+  //     const value = await AsyncStorage.getItem("person");
+  //     const person = JSON.parse(value);
+  //     console.log(person);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // demo();
+
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+    <OfflineNotice />
+    <Screen>
+      <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+    </Screen>
+    </>
   );
 }
