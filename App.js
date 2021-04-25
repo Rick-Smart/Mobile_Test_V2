@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -13,6 +13,7 @@ import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import AppText from "./app/components/AppText";
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthContext from "./app/auth/context";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -89,15 +90,16 @@ export default function App() {
 
   // demo();
 
+  const [user, setUser] = useState();
+
   return (
-    <>
-    <OfflineNotice />
-    <Screen>
-      <NavigationContainer theme={navigationTheme}>
-        {/* <AppNavigator /> */}
-        <AuthNavigator />
-      </NavigationContainer>
-    </Screen>
-    </>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <OfflineNotice />
+      <Screen>
+        <NavigationContainer theme={navigationTheme}>
+          {user ? <AppNavigator /> : <AuthNavigator /> }
+        </NavigationContainer>
+      </Screen>
+    </AuthContext.Provider>
   );
 }
