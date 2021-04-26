@@ -5,7 +5,11 @@ import LottieView from "lottie-react-native";
 
 import colors from "../config/colors";
 
-export default function UploadScreen({ onDone, progress = 0, visible = false }) {
+export default function UploadScreen({
+  onDone,
+  progress = 0,
+  visible = false,
+}) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
@@ -16,12 +20,12 @@ export default function UploadScreen({ onDone, progress = 0, visible = false }) 
             width={200}
           />
         ) : (
-          <LottieView 
-          source={require("../assets/animations/done.json")} 
-          autoPlay
-          onAnimationFinish={onDone}
-          loop={false}
-          style={styles.animation}
+          <LottieView
+            source={require("../assets/animations/done.json")}
+            autoPlay
+            onAnimationFinish={onDone}
+            loop={false}
+            style={styles.animation}
           />
         )}
       </View>
@@ -36,7 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   animation: {
-    width: 150
-
-  }
+    width: 150,
+  },
 });
