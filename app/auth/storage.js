@@ -13,7 +13,7 @@ const storeToken = async (authToken) => {
 
 const getToken = async () => {
   try {
-    return await SecureStore.getitemAsync(key);
+    return await SecureStore.getItemAsync(key);
   } catch (error) {
     console.log("error getting the auth token", error);
   }
@@ -21,7 +21,7 @@ const getToken = async () => {
 
 const removeToken = async () => {
   try {
-    await SecureStore.removeitemAsync(key);
+    await SecureStore.removeItemAsync(key);
   } catch (error) {
     console.log("error removing auth token", error);
   }
@@ -33,6 +33,7 @@ const getUser = async () => {
 };
 
 export default {
+  getToken,
   getUser,
   storeToken,
   removeToken,
