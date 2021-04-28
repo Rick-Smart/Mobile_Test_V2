@@ -19,6 +19,7 @@
     "ios": {
       "supportsTablet": true
     },
+    "description": "A marketplace for selling the stuff you don't want",
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
