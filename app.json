@@ -2,6 +2,7 @@
   "expo": {
     "name": "mobile_test_v2",
     "slug": "mobile_test_v2",
+    "privacy": "public",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
@@ -17,7 +18,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codewithrick.buyitall",
+      "buildNumber": "1.0.0"
     },
     "description": "A marketplace for selling the stuff you don't want",
     "android": {
