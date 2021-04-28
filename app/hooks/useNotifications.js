@@ -23,7 +23,7 @@ export default useNotifications = (notificationListener) => {
       expoPushTokensApi.register(token);
       // console.log(token);
     } catch (error) {
-      console.log("Error getting a push token. ", error);
+      // console.log("Error getting a push token. ", error);
     }
   };
 };

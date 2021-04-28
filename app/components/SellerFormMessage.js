@@ -17,7 +17,7 @@ function SellerFormMessage({ listing }) {
     const result = await messagesApi.send(message, listing.id);
 
     if (!result.ok) {
-      console.log("Error", result);
+      // console.log("Error", result);
       return Alert.alert("Error", "Could not send the message to the seller.");
     }
     
@@ -31,7 +31,7 @@ function SellerFormMessage({ listing }) {
       },
     });
 
-    console.log(result.config.data);
+    // console.log(result.config.data);
   };
 
   return (
